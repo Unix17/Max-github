@@ -8,7 +8,7 @@ var server= http.createServer();
 
 var io=socketio(server);// обробка сокетів через наш сервер
 
-var port=3000;
+var port = process.env.PORT || 5000;;
 //серевер посркдник получает дание с одного сокета и разсилает всем подключенним сокетам 
 fs.readFile('./index.html', function(err, html_string) {
     
@@ -43,7 +43,7 @@ fs.readFile('./index.html', function(err, html_string) {
     })
     
     server.listen(port, function(){
-        console.log('Server is running on port 3000');
+        console.log('Server is running on port' + port);
     })
 })
 
