@@ -145,6 +145,8 @@ input{
     var socket = io({transports: ['websocket']});
        
     var messagesContainer = document.getElementById('message');
+
+    var time = (new Date).toLocaleTimeString();
        
        socket.on('message',function(data){
            data.nickname.fontcolor("green");
@@ -167,7 +169,7 @@ input{
        function renderClientMessage(data){
            var divClient = document.createElement('DIV');
            divClient.className = "ClientContainerMessage";
-           divClient.innerHTML = '<span class = "chatText"><strong>' + data.nickname + ':</strong>' + data.message + '</span>'; // вивод елемента на страницу
+           divClient.innerHTML = '<span class = "chatText"><strong>' + data.nickname + ':</strong>' + data.message + '</span>' + time; // вивод елемента на страницу
            messagesContainer.insertBefore(divClient,messagesContainer.firstChild);
            document.getElementById('greeting').style.display = 'none';
        }
