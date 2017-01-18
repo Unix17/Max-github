@@ -11,9 +11,10 @@
   "dependencies": {
     "escape-html": "^1.0.3",
     "html-escape": "^2.0.0",
+    "node-emoji": "^1.5.1",
     "socket.io": "^1.7.2"
   },
-    "engines": {
+  "engines": {
     "node": "6.9.1",
     "npm": "3.10.8"
   }

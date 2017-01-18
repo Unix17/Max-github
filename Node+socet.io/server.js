@@ -3,6 +3,7 @@ var http= require('http'); // залежності
 var fs= require('fs');// файлова система 
 var socketio= require('socket.io');
 var html =require('escape-html');
+var emoji = require('node-emoji').emoji;
 
 var server= http.createServer();
 
@@ -21,6 +22,7 @@ fs.readFile('./index.html', function(err, html_string) {
     io.on("connection", function(socket){
         
         socket.on("message", function(data){
+        console.log(emoji.heart);
         console.log(data.nickname);
 //            data.message.style.color = "#ff0000";
             socket.broadcast.emit('message', {
