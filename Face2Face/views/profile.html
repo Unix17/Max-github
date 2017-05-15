@@ -1,0 +1,488 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="socialApp">
+<head>
+    <meta charset="UTF-8">
+    <title>profile</title>
+     <base href="/profile">
+      <!-- load bootstrap fontawesome and animate.css via CDN -->
+	<link rel="stylesheet" href="http://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css">
+	<link rel="stylesheet" href="http://netdna.bootstrapcdn.com/font-awesome/4.0.0/css/font-awesome.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.css">
+
+	
+    <link rel="stylesheet" href="stylesheet/profile.css">
+		
+	<!--LESS CDN-->
+   <script src="//cdnjs.cloudflare.com/ajax/libs/less.js/2.7.2/less.min.js"></script>
+   
+  
+	<!-- load angular and angular-route via CDN -->
+	<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.3.8/angular.min.js"></script>
+
+	<!-- load our custom angular app files -->
+
+ <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/1.7.3/socket.io.js"></script>
+	<script src="js/app.js"></script>
+   <script src="js/directive.js"></script>
+   
+    
+</head>
+
+<body ng-controller="reglogCtrl as reglog">
+
+
+<div class="container">
+
+<!--HEADER-->
+ <div class="container panel header" role="heading">
+
+     <div class="row">
+     
+       
+        <div class="col-md-5 photo">
+           
+<!--            <img src="https://thumbs.dreamstime.com/t/young-beautiful-girl-look-side-26006221.jpg" class="img-thumbnail">-->
+            <img ng-src="../uploads/{{reglog.UsersData.profilephoto}}" class="img-thumbnail animated fadeIn">
+        </div> 
+        
+         <div class="header_info col-md-7">
+         
+          <div class="row">
+<!-- LOGOUT-->
+              <div class="col-md-12 logout">
+                  <i class="glyphicon glyphicon-log-in " ng-click="reglog.Logout()"></i>
+              </div>
+              
+              <div class="col-md-12 bio">
+                
+                 <h2 class="text-capitalize animated fadeIn" ng-model="reglog.userlogins">Joana Due</h2>
+                  <h4 class="text-lowercase">@weber</h4>
+<!--                  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatum fugit eum quaerat est! Omnis suscipit, expedita illo, earum quibusdam fuga reiciendis aspernatur illum natus itaque officiis molestias vero eaque praesentium.</p> -->
+                 <p class="animated fadeIn">{{reglog.UsersData.bio}}</p>
+              </div>
+              
+                <!--HEADER NAVIGATION-->
+              <div class="col-md-12 navigation">
+                 
+                  <ul class="nav nav-pills" role="tablist">
+                     <li role="presentation" class="active"><a href="#posts" data-toggle="pill"><i class="glyphicon glyphicon-pencil"></i></a></li>
+                     <li role="presentation" ng-click="reglog.MessageBox()"><a href="#message" data-toggle="pill"><i class="glyphicon glyphicon-send"></i></a></li>
+                     <li role="presentation" ng-click="reglog.Friends()"><a href="#friends" data-toggle="pill"><i class="glyphicon glyphicon-user"></i></a></li>
+                     <li role="presentation"><a href="#seatings" data-toggle="pill"><i class="glyphicon glyphicon-cog"></i></a></li>
+        
+                  </ul>
+              </div>
+               <!--END HEADER NAVIGATION-->
+    
+          </div>
+          
+          </div>
+      
+        
+        </div>
+           
+ </div>
+<!-- END HEADER-->
+ 
+ <!-- CONTENT-->
+ 
+ <div class="container-fluid content">
+   
+    <div class="row">
+       
+<!-- USER INFORMATIOM-->
+        <div class="col-md-5">
+           
+          <div class="panel info">
+             <div class="panel-heading">
+                 <h4>Profile Information</h4>
+             </div>
+             
+              <div class="panel-body">
+                  <a href="#" class="list-group-item">
+                      <span class="glyphicon glyphicon-envelope"></span>
+                      
+                      <span class="text">Email</span>
+                  </a>
+                  <a href="#" class="list-group-item">
+                      <span class="glyphicon glyphicon-phone-alt"></span>
+                      <span class="text">079-798-887</span>
+                  </a>
+                  <a href="#" class="list-group-item">
+                      <span class="glyphicon glyphicon-home"></span>
+                      <spa class="text">Location</spa>
+                  </a>
+              </div>
+          </div>     
+        </div>
+        
+          <!-- NEW POSTS-->
+               
+                <div class="col-md-7 newpost">
+                    <div class="panel panel-default">
+                        <div class="panel-body">
+                         <textarea class="form-control" rows="5" placeholder="type somthik interesting..."></textarea>
+                        </div>
+                        <div class="panel-footer">
+                            <ul class="nav nav-pills">
+                                <li role="presentation"><i class="glyphicon glyphicon-remove"></i></li>
+                                <li role="presentation"><i class="glyphicon glyphicon-file"></i></li>
+                                <button class="btn btn-primary pull-right">Public</button>
+                            </ul> 
+                         </div> 
+                </div>
+        </div>
+    </div>
+</div>
+<!--END CONTENT-->
+
+<!--TABCONTENT-->
+<div class="container-fluid">
+  
+   <div class="tab-content">
+      
+<!-- POSTS-->
+       <div role="tabpanel" class="tab-pane active fade in" id="posts">
+          
+          <div class="row">
+          
+           <div class="col-md-7 pull-right panel-group">
+           
+          
+           <div class="panel panel-default">
+                <div class="panel-body">
+                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolorem nemo, similique perferendis possimus sunt animi excepturi itaque architecto odio beatae, enim aspernatur a maxime est iusto. Voluptatum optio incidunt ea.</p>
+                </div>
+                    <div class="panel-footer">
+                    
+                    <i class="glyphicon glyphicon-trash"></i>
+                    <i class="glyphicon glyphicon-heart-empty"></i>
+                    <i class="glyphicon glyphicon-eye-open"></i>
+                    
+                    </div>
+                    </div>
+                   </div>
+               </div>
+            
+           </div>
+       
+<!--END POSTS-->
+       
+       
+       
+       
+       
+       
+       
+<!-- MESSAGE-->
+       <div role="tabpanel" class="tab-pane fade"  id="message">
+          
+          <div class="container-fluid">
+            <div class="panel  panel-default">
+              <div class="panel-header">
+                <div class="panel-title">
+                   <div class="row">
+                    <div class="col-md-3 col-xs-6">
+                      <input class="form-control" type="text" name="" placeholder="search your friends :)">
+                    </div>
+                  <!--   TABS -->
+                  <div class="col-md-5">
+                  <ul class="nav nav-tabs" id="ChatusersTabs">
+                    <li class="active" id="startmessage"><a data-toggle="tab" href="#startmessage">Start Page</a></li>
+                    
+                  </ul>
+                  </div>
+
+
+                    <div class="col-md-4 col-xs-6">
+                  <h5 class="text-right"><i class="glyphicon glyphicon-comment"></i> face2face chat</h5>
+                </div>
+                  </div>
+                </div>
+              </div>
+              <div class="panel-body">
+                <div class="row">
+                  <!-- CHAT FRIENDS -->
+
+                  <div class="col-md-3 col-xs-6 chatfriends">
+
+                    <div class="list-group">
+
+                      <a ng-repeat="friends in reglog.userfriends" class="list-group-item" ng-click="reglog.chooseFriendToMessage(self.$index1=friends.usersid,self.$index2=friends.logins)">
+                      <img  class="img-circle" src="../uploads/{{friends.userphoto}}">
+                      <span class="list-group-item-text">{{friends.logins}}</span>
+                      </a>
+                     
+
+                    </div>
+                  </div>
+                  <!-- CHAT BOX -->
+                  <div class="col-md-9 chatside">
+                   <div class="panel-default">
+
+                   <div class="panel-body">
+                     <div class="tab-content" id="ChatusersContent">
+
+                      <div id="startmessageContent" class="tab-pane fade in active text-center">
+                        <h3 class="text-center">Welcome to Face2Face Chat</h3>
+                       
+                           <img class="" src="./image/face2face.png" alt="face2face" width="25%" height="30%">
+                       
+                          <p>choose friend and start message version 0.0.1</p>
+                         
+                      </div>
+
+
+                     </div>
+                   </div>
+
+                   <div class="panel-footer">
+                   <div class="row">
+                   <div class="col-md-9 col-xs-10 messageinput">
+                     <input class="form-control" type="text" placeholder="type text..." ng-model="reglog.messagetext">
+                     </div>
+                     <div class="col-md-3 col-xs-2 sendinput">
+                     <input class="btn btn-default btn-block btn-lg" type="button" value="Send" name="sendmasage" ng-click="reglog.SendMessage()" ng-disabled="reglog.typeMessage">
+                     </div>
+                   </div>
+                   </div>
+
+                   </div>
+                  </div>
+
+
+
+
+
+
+                </div>
+              </div>
+            </div>
+          </div>
+
+       </div>
+<!-- END MESSAGE-->
+       
+       
+       
+       
+       
+<!--  FRIENDS-->
+      
+       <div role="tabpanel" class="tab-pane fade"  id="friends">
+             <div class="container-fluid">
+              <div class="jumbotron">
+                 <i class="glyphicon glyphicon-user"></i> <span>Friends make you better</span>
+                  <div class="row">
+                    
+                    
+                    <!--PEOPLE IN FACE2FACE-->
+                     <div class="col-md-12">
+                       
+                         
+                         
+                          <div class="panel">
+                             <div class="panel-heading">
+                             <div class="row">
+                                <div class="col-md-7">
+                             <span>People in Face2Face</span>
+                             </div>
+                             
+                              <div class="col-md-5">
+                               <div class="input-group">
+                                  <input type="text" class="form-control" placeholder="Search new friends" ng-model="reglogCtrl.serchFriend">
+                                     <span class="input-group-btn">
+                                        <button class="btn btn-default" type="button"><i class="glyphicon glyphicon-search"></i></button>
+                                        </span>
+                                </div>
+                              </div>
+                             
+                             </div>
+                             </div>
+                              <div class="panel-body">
+                                <div class="row">
+                                
+                                <div class="col-md-4 col-sm-6" ng-repeat="user in reglog.friends | filter:reglogCtrl.serchFriend">
+                                
+                                 <div class="thumbnail">
+                                 <img ng-src="../uploads/{{user.userphoto}}" class="img-circle">
+                                 <div class="caption" >
+                                 <h3>{{user.logins}}</h3>
+                                 <p>weber</p>
+                                 <button class="btn btn-primary pull-right" ng-click="reglog.AddFriends(this.$index=user.usersid)">Add Friend</button>
+                                 </div>
+                                    </div>
+                                   
+                                    </div>
+                                    
+                                  </div>
+                              </div>
+                          </div>
+                     </div> 
+                     
+<!--
+                      <table class="table-hover task_table">
+             <tbody>
+
+                <tr ng-repeat="key in reglog.friends">
+                <td>
+                <button type="submit" class="btn btn-sm btn-default">Delete</button>
+                </td>
+                <td>{{key.logins}}</td>
+            </tr>
+            </tbody>
+     </table>
+-->
+                     
+                     
+                     
+                     
+                     
+                    <!--YOU FRIENDS-->
+                     <div class="col-md-12">
+
+                        <div class="panel">
+                             <div class="panel-heading"><h4>Your Friends</h4></div>
+                              <div class="panel-body">
+                                <div class="row">
+                                
+                                <div class="col-md-4 col-sm-6" ng-repeat="friends in reglog.userfriends">
+                                
+                                 <div class="thumbnail">
+                                 <img ng-src="../uploads/{{friends .userphoto}}" class="img-circle">
+                                 <div class="caption" >
+                                 <h3>{{friends.logins}}</h3>
+                                 <p>weber</p>
+                                 <button class="btn btn-danger pull-right" ng-click="">Delete Friends</button>
+                                 </div>
+                                    </div>
+                                   
+                                    </div>
+                                    
+                                  </div>
+                              </div>
+                          </div>
+
+                     </div>
+                      
+                  </div>
+              </div> 
+              </div>
+       </div>
+       
+       
+       
+       
+       
+<!-- SEATINGS-->
+       <div role="tabpanel" class="tab-pane fade" id="seatings">
+           <div class="container-fluid">
+               <div class="jumbotron other-color">
+                 <i class="glyphicon glyphicon-cog"></i><span> Settings</span>
+                   
+                     <div class="panel-group" id="collapse-group"> 
+                     
+<!-- PROFILE-SEATINGS-->
+                     
+                      <div class="panel row">
+                      
+                      
+                       <div class="panel-heading">
+                       <a data-toggle="collapse" href="#profile_seatings"><h4 ><i class="glyphicon glyphicon-user"></i> Time to change profile and drink coffee <span class="caret"></span> </h4></a>
+                        </div>
+                        
+                        <div id="profile_seatings" class="collapse in">
+                        
+                            <div class="col-md-7">
+                        
+                       <div class="panel-body">
+                       
+                
+                       <div class="form-group">
+                       <label for="form-control">Bio:</label>
+                       <textarea class="form-control" rows="5" placeholder="tell about yourself.." ng-value="bio" ng-model="reglog.bio"></textarea>
+                       </div>
+                       
+                        <div class="form-group">
+                            <label for="text">Gender:</label>
+                             
+                                 <input type="text" class="form-control" id="gender" placeholder="gender" ng-value="this.gender" ng-model="reglog.gender">
+                        </div>
+                       
+                       <form role="form">
+                        <div class="form-group">
+                                 <label for="text">Phone:</label>
+                                 <input type="text" class="form-control" id="phone" placeholder="045-43-432-234" ng-model="reglog.phone">
+                              
+                        </div>
+                        
+                         <div class="form-group">
+                            <label for="text">Location:</label>
+                             
+                                 <input type="text" class="form-control" id="location" placeholder="City" ng-model="reglog.location">
+                        </div>
+                           
+                          
+                           
+                            <button class="btn btn-primary" ng-click="reglog.SaveProfileInfo()">Save Change</button>
+                       </form>
+                   
+                       
+                                               </div>
+                                            </div> 
+                                    <!--PHOTO SEATINGS --->
+                                             <div class="col-md-5 photoseatings">
+                                                
+                                                 <div class="panel-body">
+                                                     <form id="photoUpload">
+                                                         <div class="form-group">
+                                                            <label for="avatar">Profile Photo:</label>
+                                                             <input type="file" file-model="reglog.myFile">
+                                                           
+                                                             <button class="btn btn-primary" ng-click="reglog.PhotoUpload()">Update Photo</button>
+                                                            
+                                                             <img ng-src="../uploads/{{reglog.UsersData.profilephoto}}">
+                                                         </div>
+                                                     </form>
+                                                 </div>
+                                             </div> 
+                                              <!-- END PHOTO SEATINGS --->       
+                                              
+                                   </div>
+                          </div>
+                          
+            <!-- END PROFILE-SEATINGS-->
+                 
+                   </div>
+           </div>
+       </div>
+
+       
+   </div>
+    
+      
+</div>
+ 
+</div>
+    </div>
+
+
+
+
+
+
+
+
+
+
+ <!-- jQuery -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+   <!-- Latest compiled and minified JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+<!-- Socet.io -->
+ 
+ <!--{{reglog.UsersData.login}}-->
+ 
+</body>
+
+</html>

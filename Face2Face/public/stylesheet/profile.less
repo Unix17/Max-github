@@ -1,0 +1,270 @@
+body{
+    
+    background-color:#E3E3E3;
+    padding-top:1%;
+}
+
+@blue:#1586ea;
+@bluev:#6200ff;
+@viol:#8900ff;
+@red:#ea154e;
+    
+    .header{
+     
+    .photo{
+         background-attachment: fixed;
+         background-image:url(https://static1.squarespace.com/static/4ea18496d09aa9e3f3299a86/t/54971325e4b07bc57783a018/1419186983511/);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height:295px;
+//       padding-top:5%;
+       
+        
+        img{
+
+//            display: block;
+//            margin: auto;
+            width: 160px;
+            height: 160px;
+            box-shadow: -5px 11px 23px 0px rgba(0,0,0,0.75);
+            object-fit: cover;
+            
+           
+        }
+    }
+        
+        .logout{
+//            background-color:antiquewhite;
+            padding:1% 3% 0 0;
+            text-align:right;
+            
+            i{
+                font-size:30px;
+                color:@blue;
+           
+                &:hover{
+                   color:@red;
+                }
+                
+             }
+        }
+        h4{
+            color:#6c6c6c;
+        }
+        
+        .navigation{
+            padding: 6% 0 0 65%;
+//            background-color: burlywood;
+        }
+}
+
+.content{
+   
+    .info{
+        span{
+           font-size:15px; 
+        }
+        .glyphicon-envelope{
+            color:@blue;
+        }
+        .glyphicon-phone-alt{
+            color:@bluev;
+        }
+        .glyphicon-home{
+            color:@viol;
+        }
+        .text{
+            margin-left:5%;
+        }
+    }
+    
+    .newpost{
+        
+        .nav{
+           
+            li{
+                margin-left: 2%;
+                font-size:15px;
+                
+                
+                .glyphicon-remove {
+                    color: @red;
+                    &:hover{
+                        font-size:20px;
+                    }
+                }
+                .glyphicon-file{
+                    color:@blue;
+                     &:hover{
+                        font-size:20px;
+                    }
+                }
+            }
+        }
+    }
+}
+
+.tab-content{
+    
+    #posts{
+        
+
+        i{
+            font-size:15px;
+            margin-left: 1%;
+           
+            
+            &:hover{
+                font-size:15pt;
+              
+            }
+        }
+        
+        .glyphicon-trash{
+            color: @blue;
+        }
+        .glyphicon-heart-empty{
+            color: @red;
+        }
+        .glyphicon-eye-open{
+            color:@viol;
+        }
+        
+    }
+
+    #message{
+
+        .panel-header{
+                    
+        .panel-title{
+            -webkit-box-shadow: 0px 9px 9px -7px rgba(0,0,0,0.2);
+            -moz-box-shadow: 0px 9px 9px -7px rgba(0,0,0,0.2);
+            box-shadow: 0px 9px 9px -7px rgba(0,0,0,0.2);
+            padding:1%;
+            font-style:italic;
+
+        }
+     }
+
+    // FRIENDS LIST
+        .chatfriends{
+            overflow:scroll;
+            max-height:450px;
+              border-right: 1px solid #B4B5B8;
+
+              ::-webkit-input-placeholder{
+                    font-size:0.9em;
+                    font-style:italic;
+              }
+
+        .list-group{
+
+          .list-group-item{
+                border-style:none;
+
+            &:active:focus{
+               background-color:@bluev;
+                color:white;
+            }
+
+
+          }
+            img{
+                width:80px;
+                height:80px;
+                object-fit:cover;
+            }
+            span{
+                font-size:1.5em;
+                margin-left:10%;
+            }
+        }
+     }
+     //MESSAGE BOX
+    .chatside{
+        .panel-body{
+            // background-color:gray;
+            padding:0;
+           .tab-content{
+            padding:10px;
+            min-height:350px;
+            max-height:350px;
+            overflow:auto;
+            // background-color:green;
+
+             }
+        }
+
+        .panel-footer{
+            background-color:white;
+            border: none;
+        
+        .messageinput{
+            padding:1%;
+            border-radius: 25px;
+            border: 1px solid #bcbdc0;
+        .form-control{
+                box-shadow:none;
+                border-style:none;
+                outline: none;
+
+                 &:focus{
+                    box-shadow:none;
+                 }
+        }
+    }
+
+    .sendinput{
+     .btn{
+        color:gray;
+        border-radius: 25px;
+        border: 1px solid #bcbdc0;
+        &:hover{
+            color:white;
+            background-color:#42A2FF;
+        }
+        &:focus{
+            color:gray;
+            background-color:white;
+            outline:none;
+            box-shadow:none;
+        }
+     }
+    }
+}
+
+    }
+}
+    
+    #friends{
+        .panel{
+                 span{
+                font-weight:bold;
+       }
+
+            }
+            
+
+        .thumbnail{
+         display: flex;
+         margin-bottom:4%;
+
+        
+        img{
+            width:150px;
+            height:150px;
+            object-fit: cover;
+            
+            }
+                        
+        }
+    }
+    #seatings{
+        img{
+            width:398px; 
+            height: 300px;
+            object-fit:scale-down;
+        }
+    }
+}
