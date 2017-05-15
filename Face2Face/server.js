@@ -14,7 +14,7 @@ var app	= express();
 var port = process.env.PORT || 5000;
 
 var server=app.listen(port,function(){
-  console.log("App Started on PORT 3000");
+  console.log("App Started on PORT 5000");
 });
 
 var io = require('socket.io').listen(server);
